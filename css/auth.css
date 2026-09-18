@@ -25,7 +25,7 @@ h1, h2, h3, p, blockquote { margin: 0; }
 .auth-header { position: absolute; z-index: 10; inset: 0 0 auto; }
 .auth-header-inner { display: flex; align-items: center; justify-content: space-between; height: 84px; }
 .logo { display: inline-flex; align-items: center; }
-.logo-image { display: block; width: 156px; height: 40px; background: var(--white); -webkit-mask: url("images/logo/logo-stackly.webp") no-repeat left center / contain; mask: url("images/logo/logo-stackly.webp") no-repeat left center / contain; transition: background .3s ease; }
+.logo-image { display: block; width: 156px; height: 40px; background: var(--white); -webkit-mask: url("../images/logo/logo-stackly.webp") no-repeat left center / contain; mask: url("../images/logo/logo-stackly.webp") no-repeat left center / contain; transition: background .3s ease; }
 .logo:hover .logo-image { background: var(--red); }
 .auth-home-link { display: inline-flex; align-items: center; gap: 19px; min-height: 42px; padding: 0 16px; border: 1px solid var(--light-line); color: rgba(255, 255, 255, .76); font-size: 15px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: background .3s ease, border-color .3s ease, color .3s ease, transform .3s var(--ease); }
 .auth-home-link span { color: var(--red); font-size: 19px; transition: transform .3s var(--ease); }
