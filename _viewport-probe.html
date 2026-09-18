@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viewport probe</title>
+  <style>body { margin: 0; background: #0A0A0A; color: #fff; font: 14px monospace; } #out { padding: 8px; white-space: pre-wrap; }</style>
+</head>
+<body>
+  <div id="out">measuring</div>
+  <script>
+    const measure = () => {
+      const vv = window.visualViewport;
+      document.getElementById("out").textContent = [
+        "innerWidth=" + window.innerWidth + " innerHeight=" + window.innerHeight,
+        "outerWidth=" + window.outerWidth + " outerHeight=" + window.outerHeight,
+        "screen=" + screen.width + "x" + screen.height + " dpr=" + window.devicePixelRatio,
+        "visualViewport=" + (vv ? Math.round(vv.width) + "x" + Math.round(vv.height) : "n/a"),
+        "docClientWidth=" + document.documentElement.clientWidth,
+        "scrollWidth=" + document.documentElement.scrollWidth
+      ].join("\n");
+    };
+    window.addEventListener("resize", measure);
+    measure();
+  </script>
+</body>
+</html>

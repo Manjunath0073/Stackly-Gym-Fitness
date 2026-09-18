@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="description" content="Stackly Gym & Fitness Studio coach dashboard.">
+  <title>Coach Dashboard | Stackly Gym & Fitness Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="coach.css">
+</head>
+<body class="coach-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M7 6v12M17 6v12M20 9v6M7 12h10"/><path d="M2.5 9v6M21.5 9v6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8.8 12l-1.3 9 4.5-2.7 4.5 2.7-1.3-9"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="M16 16l5 5"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4.4 0 7-2.8 7-6.7 0-3.2-1.7-5.6-4.6-8.3.1 2.5-1 3.7-2 4.3.2-3.9-1.5-6.8-4.1-9.3.1 4.2-3.3 6.2-3.3 11.6C5 18.9 7.7 22 12 22z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.4-8.8 10.5-8.8 10.5S3.2 14.2 3.2 8.8A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.4z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M8 12h10"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4zM13.5 6.5l4 4"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4 6.2 20.4l1.1-6.4L2.6 9.4l6.5-.9z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <div class="drawer-scrim" data-drawer-close></div>
+    <aside class="sidebar" aria-label="Coach navigation">
+      <div class="sidebar-top">
+        <a class="brand" href="#overview" aria-label="Stackly coach overview"><span class="logo-image" aria-hidden="true"></span><span class="brand-context">COACH OS</span></a>
+        <button class="icon-button sidebar-close" type="button" aria-label="Close navigation" data-drawer-close><svg><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="coach-mini">
+        <div class="avatar avatar-small"><img data-coach-avatar alt=""><span data-coach-initials>MC</span></div>
+        <div><strong><span data-coach-name>Maya Chen</span><span class="verified" data-coach-verified title="Verified coach"><svg><use href="#i-check"></use></svg></span></strong><span><i class="status-dot"></i><span data-coach-tier>HEAD COACH</span></span></div>
+        <button class="icon-button mini-more" type="button" aria-label="Open coach settings" data-route="settings"><svg><use href="#i-more"></use></svg></button>
+      </div>
+      <p class="nav-label">Coaching</p>
+      <nav class="side-nav" aria-label="Coaching views">
+        <a href="#overview" data-route="overview"><svg><use href="#i-grid"></use></svg><span>Overview</span><b></b></a>
+        <a href="#clients" data-route="clients"><svg><use href="#i-user"></use></svg><span>Clients</span><b></b></a>
+        <a href="#sessions" data-route="sessions"><svg><use href="#i-calendar"></use></svg><span>Sessions</span><b></b></a>
+        <a href="#programs" data-route="programs"><svg><use href="#i-dumbbell"></use></svg><span>Programs</span><b></b></a>
+      </nav>
+      <p class="nav-label nav-label-second">Growth</p>
+      <nav class="side-nav" aria-label="Growth views">
+        <a href="#analytics" data-route="analytics"><svg><use href="#i-trend"></use></svg><span>Analytics</span><b></b></a>
+        <a href="#messages" data-route="messages"><svg><use href="#i-chat"></use></svg><span>Messages</span><b data-unread-total-badge></b></a>
+        <a href="#reviews" data-route="reviews"><svg><use href="#i-star"></use></svg><span>Reviews</span><b></b></a>
+        <a href="#settings" data-route="settings"><svg><use href="#i-sliders"></use></svg><span>Settings</span><b></b></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-pulse"><span class="pulse-mark"><svg><use href="#i-bolt"></use></svg></span><span><strong>Coach the<br>standard.</strong><small>Stackly / Salem</small></span></div>
+        <button class="collapse-button" type="button" aria-label="Collapse sidebar" data-sidebar-collapse><svg><use href="#i-chevron"></use></svg><span>Collapse menu</span></button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-start">
+          <a class="topbar-brand" href="#overview" aria-label="Stackly coach overview"><span class="logo-image" aria-hidden="true"></span></a>
+          <button class="icon-button mobile-menu" type="button" aria-label="Open navigation" data-drawer-open><svg><use href="#i-menu"></use></svg></button>
+          <div class="crumb"><span>STACKLY COACH</span><i>/</i><strong data-current-view>OVERVIEW</strong></div>
+        </div>
+        <div class="topbar-tools">
+          <div class="global-search">
+            <svg><use href="#i-search"></use></svg>
+            <label class="sr-only" for="coach-search">Search dashboard</label>
+            <input id="coach-search" type="search" placeholder="Search clients, sessions, programs" autocomplete="off" data-search>
+            <kbd>/</kbd>
+            <div class="search-results" data-search-results hidden></div>
+          </div>
+          <div class="topbar-action-wrap">
+            <button class="icon-button notification-trigger" type="button" aria-label="Notifications" aria-expanded="false" data-notifications><svg><use href="#i-bell"></use></svg><i class="notification-dot"></i></button>
+            <div class="popover notification-popover" data-notification-panel hidden>
+              <div class="popover-heading"><span>Notifications</span><button type="button" data-mark-read>Mark all read</button></div>
+              <div data-notification-list></div>
+            </div>
+          </div>
+          <div class="topbar-action-wrap profile-wrap">
+            <button class="profile-trigger" type="button" aria-expanded="false" data-profile-toggle><span class="avatar avatar-top"><img data-coach-avatar alt=""><span data-coach-initials>MC</span></span><span class="profile-trigger-copy"><strong data-coach-name>Maya Chen</strong><small><span class="stars" data-rating-inline></span><span data-coach-rating>4.9</span></small></span><svg><use href="#i-down"></use></svg></button>
+            <div class="popover profile-popover" data-profile-panel hidden>
+              <div class="profile-popover-head"><span class="avatar avatar-medium"><img data-coach-avatar alt=""><span data-coach-initials>MC</span></span><div><strong><span data-coach-name>Maya Chen</span><span class="verified" data-coach-verified><svg><use href="#i-check"></use></svg></span></strong><small data-coach-email>maya@stackly.fit</small><small data-coach-specialties>Strength / Conditioning</small></div></div>
+              <a href="#settings" data-route="settings"><svg><use href="#i-edit"></use></svg> Edit profile</a>
+              <a href="#reviews" data-route="reviews"><svg><use href="#i-star"></use></svg> Reviews</a>
+              <button type="button" class="logout-link" data-logout><svg><use href="#i-logout"></use></svg> Log out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" class="main-content">
+        <section class="view is-active" data-view="overview" aria-labelledby="overview-title">
+          <div class="view-topline">
+            <div><p class="eyebrow"><span></span> Coach / Overview</p><h1 id="overview-title">Good morning, <em data-coach-first>Maya</em>.</h1><p class="view-lede">Your room, your roster, your week. Here is where the attention goes today.</p></div>
+            <div class="view-meta"><span class="date-stamp" data-today-label>Thursday, 17 September 2026</span><strong class="live-clock" data-clock>09:41:22</strong><a class="outline-button" href="#settings" data-route="settings"><svg><use href="#i-edit"></use></svg> Edit profile</a></div>
+          </div>
+          <div class="stat-grid">
+            <article class="stat-card stat-card-red"><span class="stat-label">Active clients <svg><use href="#i-user"></use></svg></span><strong data-stat="clients">24</strong><span class="stat-foot"><b>+3</b> since August</span><span class="stat-spark"></span></article>
+            <article class="stat-card"><span class="stat-label">Sessions today <svg><use href="#i-calendar"></use></svg></span><strong data-stat="sessions">6</strong><span class="stat-foot"><b>2</b> completed already</span><span class="stat-spark"></span></article>
+            <article class="stat-card"><span class="stat-label">Average rating <svg><use href="#i-star"></use></svg></span><strong data-stat="rating">4.9</strong><span class="stat-foot"><b>128</b> member reviews</span><span class="stat-spark"></span></article>
+            <article class="stat-card"><span class="stat-label">Monthly earnings <svg><use href="#i-card"></use></svg></span><strong data-stat="earnings">1.86L</strong><span class="stat-foot"><b>+9%</b> vs last month</span><span class="stat-spark"></span></article>
+          </div>
+          <div class="overview-grid">
+            <article class="panel earnings-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Income</p><h2>Monthly earnings</h2></div><div class="chart-legend"><span><i class="legend-line"></i> Earnings</span><button class="select-button" type="button">Last 8 months <svg><use href="#i-down"></use></svg></button></div></div>
+              <div class="chart-wrap earnings-chart-wrap" data-chart-shell="earnings"><svg class="data-chart" data-chart="earnings" viewBox="0 0 800 290" role="img" aria-label="Monthly earnings area chart"><defs><linearGradient id="earnings-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E24B4A" stop-opacity=".4"/><stop offset="1" stop-color="#E24B4A" stop-opacity="0"/></linearGradient></defs><g class="chart-grid" data-chart-grid></g><path class="chart-area" data-chart-area></path><path class="chart-line" data-chart-line></path><g data-chart-points></g><g class="chart-labels" data-chart-labels></g></svg><div class="chart-tooltip" data-chart-tooltip role="status"></div></div>
+              <div class="chart-foot"><span><i class="live-indicator"></i> Updated from your session log</span><strong>Best month <b data-best-earnings>SEP</b></strong></div>
+            </article>
+            <article class="panel split-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Booked mix</p><h2>Session split</h2></div><span class="panel-note">This month</span></div>
+              <div class="donut-stage"><svg class="donut-chart" data-chart="split" viewBox="0 0 140 140" role="img" aria-label="Session type split"><circle class="donut-track" cx="70" cy="70" r="54"></circle><g data-donut-segments></g></svg><div class="donut-label"><strong data-split-total>100</strong><span>% booked</span></div><div class="chart-tooltip donut-tooltip" data-split-tooltip role="status"></div></div>
+              <div class="split-legend" data-split-legend></div>
+            </article>
+          </div>
+          <div class="overview-lower">
+            <article class="next-session-card">
+              <div class="next-session-image"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?fit=crop&amp;fm=webp&amp;q=80&amp;w=800" alt="Coach training an athlete"><span class="image-index">UP NEXT / SESSION</span><span class="image-play"><svg><use href="#i-play"></use></svg></span></div>
+              <div class="next-session-copy"><div class="next-session-label"><span><i></i> Up next</span><time data-next-session-time>Today / 18:00</time></div><h2 data-next-session-name>Strength Lab</h2><p data-next-session-details>James Morgan / Studio B / 50 min</p><div class="next-session-foot"><span class="spots-left">Focus / <b data-next-session-focus>Deadlift waves</b></span><button class="primary-button" type="button" data-next-session-action>Start session <svg><use href="#i-arrow"></use></svg></button></div></div>
+            </article>
+            <article class="quick-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Next moves</p><h2>Quick actions</h2></div></div>
+              <div class="quick-actions">
+                <a href="#clients" data-route="clients"><span class="quick-icon"><svg><use href="#i-user"></use></svg></span><span><strong>Open roster</strong><small>Check who needs attention</small></span><svg class="quick-arrow"><use href="#i-arrow"></use></svg></a>
+                <a href="#programs" data-route="programs"><span class="quick-icon"><svg><use href="#i-dumbbell"></use></svg></span><span><strong>Build a program</strong><small>Add days, sets and reps</small></span><svg class="quick-arrow"><use href="#i-arrow"></use></svg></a>
+                <a href="#messages" data-route="messages"><span class="quick-icon"><svg><use href="#i-chat"></use></svg></span><span><strong>Message a client</strong><small><b data-unread-inline>3</b> unread threads</small></span><svg class="quick-arrow"><use href="#i-arrow"></use></svg></a>
+                <a href="#reviews" data-route="reviews"><span class="quick-icon"><svg><use href="#i-star"></use></svg></span><span><strong>Answer reviews</strong><small><b data-reply-pending>5</b> awaiting a reply</small></span><svg class="quick-arrow"><use href="#i-arrow"></use></svg></a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view="clients" aria-labelledby="clients-title" hidden>
+          <div class="view-topline compact-topline">
+            <div><p class="eyebrow"><span></span> Coach / Clients</p><h1 id="clients-title">Your roster.</h1><p class="view-lede">Every client, their goal, and the signal that tells you what to do next.</p></div>
+            <div class="view-meta"><span class="metric-callout"><strong data-client-total>24</strong><small>active clients</small></span><button class="primary-button" type="button" data-add-client><svg><use href="#i-plus"></use></svg> Add client</button></div>
+          </div>
+          <div class="workout-toolbar">
+            <div class="filter-tabs" role="tablist" aria-label="Filter clients">
+              <button class="filter-tab is-active" type="button" data-client-filter="All" role="tab" aria-selected="true">All</button>
+              <button class="filter-tab" type="button" data-client-filter="Active" role="tab" aria-selected="false">Active</button>
+              <button class="filter-tab" type="button" data-client-filter="At-risk" role="tab" aria-selected="false">At-risk</button>
+              <button class="filter-tab" type="button" data-client-filter="New" role="tab" aria-selected="false">New</button>
+            </div>
+            <label class="inline-search"><svg><use href="#i-search"></use></svg><span class="sr-only">Search clients</span><input type="search" placeholder="Search clients" data-client-search></label>
+          </div>
+          <div class="client-grid" data-client-list></div>
+          <div class="empty-state" data-client-empty hidden><span class="pulse-mark"><svg><use href="#i-search"></use></svg></span><h3>No clients found.</h3><p>Try another filter or search term.</p></div>
+          <div class="client-scrim" data-client-close></div>
+          <aside class="client-drawer" data-client-drawer aria-label="Client details" tabindex="-1">
+            <div class="client-drawer-head">
+              <span class="avatar avatar-large"><img data-drawer-avatar alt=""><span data-drawer-initials>AK</span></span>
+              <div><strong data-drawer-name>Ava King</strong><span class="status-tag active" data-drawer-status>Active</span></div>
+              <button class="icon-button" type="button" aria-label="Close client details" data-client-close><svg><use href="#i-close"></use></svg></button>
+            </div>
+            <p class="client-drawer-goal">Goal / <b data-drawer-goal>First pull-up</b></p>
+            <div class="client-drawer-stats" data-drawer-stats></div>
+            <div class="client-drawer-section"><p class="panel-kicker">Recent workouts</p><div class="mini-list" data-drawer-workouts></div></div>
+            <div class="client-drawer-section">
+              <p class="panel-kicker">Coach notes</p>
+              <form data-client-note-form>
+                <label class="sr-only" for="client-note">Coach notes</label>
+                <textarea id="client-note" data-client-note rows="4" placeholder="What should the next session build on?"></textarea>
+                <div class="note-actions"><span data-note-state>Saved to this browser</span><button class="primary-button" type="submit">Save note <svg><use href="#i-check"></use></svg></button></div>
+              </form>
+            </div>
+          </aside>
+        </section>
+
+        <section class="view" data-view="sessions" aria-labelledby="sessions-title" hidden>
+          <div class="view-topline compact-topline">
+            <div><p class="eyebrow"><span></span> Coach / Sessions</p><h1 id="sessions-title">Run the week.</h1><p class="view-lede">Your booked hours, colour-coded by session type. Tap any session to act on it.</p></div>
+            <div class="view-meta"><span class="schedule-status"><i class="live-indicator"></i> Studio live <b>06:00-20:00</b></span></div>
+          </div>
+          <div class="schedule-toolbar">
+            <div class="week-switcher">
+              <button class="icon-button" type="button" aria-label="Previous week" data-week-shift="-1"><svg><use href="#i-chevron"></use></svg></button>
+              <div><span>This week</span><strong data-week-label>14-20 September 2026</strong></div>
+              <button class="icon-button flip-x" type="button" aria-label="Next week" data-week-shift="1"><svg><use href="#i-chevron"></use></svg></button>
+            </div>
+            <div class="schedule-key"><span><i class="key-dot completed"></i> Completed</span><span><i class="key-dot booked"></i> Booked</span><span><i class="key-dot cancelled"></i> Cancelled</span><button class="outline-button" type="button" data-week-today>Jump to today</button></div>
+          </div>
+          <div class="calendar-scroll"><div class="calendar" data-calendar><div class="calendar-head"><span class="time-head">Local time</span><div class="calendar-days" data-calendar-days></div></div><div class="calendar-body"><div class="time-column" data-time-column></div><div class="calendar-track" data-calendar-track><div class="hour-lines" data-hour-lines></div><div class="class-layer" data-session-layer></div></div></div></div></div>
+          <div class="session-actions" data-session-actions hidden>
+            <span class="session-actions-copy"><b data-action-title>Strength Lab</b><small data-action-meta>James Morgan / Studio B / 18:00</small></span>
+            <div class="session-actions-buttons">
+              <button class="primary-button" type="button" data-session-complete><svg><use href="#i-check"></use></svg> Complete</button>
+              <button class="outline-button" type="button" data-session-reschedule><svg><use href="#i-calendar"></use></svg> Reschedule</button>
+              <button class="danger-button" type="button" data-session-cancel><svg><use href="#i-close"></use></svg> Cancel</button>
+            </div>
+            <button class="icon-button" type="button" aria-label="Dismiss session actions" data-session-dismiss><svg><use href="#i-close"></use></svg></button>
+          </div>
+          <article class="panel availability-panel">
+            <div class="panel-heading"><div><p class="panel-kicker">Working hours</p><h2>Open for sessions</h2></div><span class="panel-note" data-availability-state>Saved</span></div>
+            <div class="availability-days" data-availability-days></div>
+          </article>
+        </section>
+
+        <section class="view" data-view="programs" aria-labelledby="programs-title" hidden>
+          <div class="view-topline compact-topline">
+            <div><p class="eyebrow"><span></span> Coach / Programs</p><h1 id="programs-title">Build the work.</h1><p class="view-lede">Draft a program, stack the days, and assign it without leaving the room.</p></div>
+            <div class="view-meta"><span class="metric-callout"><strong data-program-count>3</strong><small>templates saved</small></span></div>
+          </div>
+          <div class="program-layout">
+            <article class="panel builder-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Program builder</p><h2 data-builder-mode>New program</h2></div><span class="panel-note">Saved locally</span></div>
+              <form data-program-form>
+                <div class="form-grid builder-fields">
+                  <label><span>Program name</span><input type="text" name="name" placeholder="e.g. Foundations B" data-program-name required></label>
+                  <label><span>Level</span><select data-program-level><option>Beginner</option><option selected>Intermediate</option><option>Advanced</option><option>All levels</option></select></label>
+                  <label><span>Weeks</span><input type="number" name="weeks" min="1" max="24" value="4" data-program-weeks></label>
+                </div>
+                <p class="panel-kicker builder-label">Assign to</p>
+                <div class="assign-list" data-program-assign></div>
+                <p class="panel-kicker builder-label">Days and exercises</p>
+                <div class="builder-days" data-program-days></div>
+                <button class="outline-button add-day" type="button" data-add-day><svg><use href="#i-plus"></use></svg> Add day</button>
+                <div class="form-submit-row"><span>Changes are saved in this browser</span><div class="builder-actions"><button class="outline-button" type="button" data-reset-draft>Clear</button><button class="primary-button" type="submit">Save program <svg><use href="#i-check"></use></svg></button></div></div>
+              </form>
+            </article>
+            <article class="panel templates-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Templates</p><h2>Library</h2></div><span class="panel-note"><b data-program-count-note>3</b> saved</span></div>
+              <div class="template-list" data-program-list></div>
+              <div class="empty-state small" data-program-empty hidden>No programs yet. Build one on the left.</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view="analytics" aria-labelledby="analytics-title" hidden>
+          <div class="view-topline compact-topline">
+            <div><p class="eyebrow"><span></span> Coach / Analytics</p><h1 id="analytics-title">The numbers.</h1><p class="view-lede">Retention, attendance, income and feedback, in one honest read.</p></div>
+            <div class="view-meta"><span class="metric-callout"><strong>92<span>%</span></strong><small>client retention</small></span></div>
+          </div>
+          <div class="analytics-grid">
+            <article class="panel chart-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Held the room</p><h2>Client retention</h2></div><span class="chart-stat"><strong>92%</strong> <b>+10 pts</b></span></div>
+              <div class="chart-wrap analytics-chart-wrap" data-chart-shell="retention"><svg class="data-chart line-chart" data-chart="retention" viewBox="0 0 600 240" role="img" aria-label="Client retention over time"><g class="chart-grid" data-chart-grid></g><path class="chart-area" data-chart-area></path><path class="chart-line" data-chart-line></path><g data-chart-points></g><g class="chart-labels" data-chart-labels></g></svg><div class="chart-tooltip" data-chart-tooltip role="status"></div></div>
+            </article>
+            <article class="panel chart-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Floor traffic</p><h2>Weekly attendance</h2></div><span class="chart-stat"><strong>152</strong> <b>+29%</b></span></div>
+              <div class="chart-wrap analytics-chart-wrap" data-chart-shell="attendance"><svg class="data-chart bar-chart" data-chart="attendance" viewBox="0 0 600 240" role="img" aria-label="Weekly attendance bar chart"><g class="chart-grid" data-chart-grid></g><g data-chart-bars></g><g class="chart-labels" data-chart-labels></g></svg><div class="chart-tooltip" data-chart-tooltip role="status"></div></div>
+            </article>
+            <article class="panel chart-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Income</p><h2>Earnings by month</h2></div><span class="chart-stat"><strong>1.86L</strong> <b>Sep</b></span></div>
+              <div class="chart-wrap analytics-chart-wrap" data-chart-shell="earnings-bars"><svg class="data-chart bar-chart" data-chart="earnings-bars" viewBox="0 0 600 240" role="img" aria-label="Earnings by month bar chart"><g class="chart-grid" data-chart-grid></g><g data-chart-bars></g><g class="chart-labels" data-chart-labels></g></svg><div class="chart-tooltip" data-chart-tooltip role="status"></div></div>
+            </article>
+            <article class="panel chart-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Member voice</p><h2>Rating distribution</h2></div><span class="chart-stat"><strong data-ratings-total>128</strong> reviews</span></div>
+              <div class="ratings-body">
+                <div class="donut-stage small"><svg class="donut-chart" data-chart="ratings" viewBox="0 0 140 140" role="img" aria-label="Rating distribution"><circle class="donut-track" cx="70" cy="70" r="54"></circle><g data-donut-segments></g></svg><div class="donut-label"><strong>4.9</strong><span>average</span></div><div class="chart-tooltip donut-tooltip" data-ratings-tooltip role="status"></div></div>
+                <div class="rating-distribution" data-ratings-legend></div>
+              </div>
+            </article>
+          </div>
+          <article class="insight-banner">
+            <div><p class="panel-kicker">Top performing program</p><h2><em data-insight-name>Foundations A</em><br>keeps clients longest.</h2></div>
+            <div class="insight-stats"><span><strong data-insight-retention>92%</strong>8 week retention</span><span><strong data-insight-clients>9</strong>clients assigned</span><span><strong>#1</strong>in your library</span></div>
+            <p class="insight-note" data-insight-note>Highest retention of any template in your library.</p>
+          </article>
+        </section>
+
+        <section class="view" data-view="messages" aria-labelledby="messages-title" hidden>
+          <div class="view-topline compact-topline">
+            <div><p class="eyebrow"><span></span> Coach / Messages</p><h1 id="messages-title">Stay in the loop.</h1><p class="view-lede">Client threads, answered between sessions. Everything stays on this device.</p></div>
+            <div class="view-meta"><span class="metric-callout"><strong data-unread-total>3</strong><small>unread messages</small></span></div>
+          </div>
+          <div class="inbox">
+            <div class="thread-list" data-thread-list></div>
+            <div class="chat-panel">
+              <header class="chat-head"><span class="avatar avatar-medium"><img data-chat-avatar alt=""><span data-chat-initials>AK</span></span><div><strong data-chat-name>Ava King</strong><small data-chat-meta>Active client / First pull-up</small></div><a class="outline-button chat-client-link" href="#clients" data-route="clients" data-open-client="ava">Open profile</a></header>
+              <div class="chat-messages" data-chat-messages></div>
+              <form class="chat-composer" data-chat-form><label class="sr-only" for="chat-input">Write a message</label><input id="chat-input" data-chat-input placeholder="Write a message" autocomplete="off"><button class="primary-button" type="submit">Send <svg><use href="#i-send"></use></svg></button></form>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="reviews" aria-labelledby="reviews-title" hidden>
+          <div class="view-topline compact-topline">
+            <div><p class="eyebrow"><span></span> Coach / Reviews</p><h1 id="reviews-title">What members say.</h1><p class="view-lede">Read the room honestly, then answer like a coach.</p></div>
+            <div class="view-meta"><span class="metric-callout"><strong data-review-count>128</strong><small>total reviews</small></span></div>
+          </div>
+          <div class="reviews-layout">
+            <aside class="panel rating-summary">
+              <div class="rating-big"><strong data-rating-avg>4.9</strong><span class="stars" data-rating-stars></span><small><b data-review-count-inline>128</b> reviews from members</small></div>
+              <div class="rating-distribution" data-rating-distribution></div>
+            </aside>
+            <div class="reviews-main">
+              <div class="filter-tabs" role="tablist" aria-label="Filter reviews by rating">
+                <button class="filter-tab is-active" type="button" data-review-filter="All" role="tab" aria-selected="true">All</button>
+                <button class="filter-tab" type="button" data-review-filter="5" role="tab" aria-selected="false">5 star</button>
+                <button class="filter-tab" type="button" data-review-filter="4" role="tab" aria-selected="false">4 star</button>
+                <button class="filter-tab" type="button" data-review-filter="3" role="tab" aria-selected="false">3 star</button>
+                <button class="filter-tab" type="button" data-review-filter="2" role="tab" aria-selected="false">2 star</button>
+              </div>
+              <div class="review-list" data-review-list></div>
+              <div class="empty-state" data-review-empty hidden><span class="pulse-mark"><svg><use href="#i-star"></use></svg></span><h3>No reviews here.</h3><p>Try another star filter.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="settings" aria-labelledby="settings-title" hidden>
+          <div class="view-topline compact-topline">
+            <div><p class="eyebrow"><span></span> Coach / Settings</p><h1 id="settings-title">Your bench.</h1><p class="view-lede">Profile, hours and preferences, saved to this browser.</p></div>
+            <div class="view-meta"><span class="save-state" data-save-state>All changes saved</span></div>
+          </div>
+          <div class="settings-layout">
+            <article class="panel profile-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Identity</p><h2>Coach profile</h2></div><span class="panel-note">Shown to members</span></div>
+              <form class="profile-form" data-coach-form>
+                <div class="profile-form-top"><div class="settings-avatar avatar-large"><img data-coach-avatar alt=""><span data-coach-initials>MC</span></div><div><button class="outline-button" type="button" data-focus-avatar>Change avatar</button><p>Use a square image URL for the cleanest crop.</p></div></div>
+                <div class="form-grid">
+                  <label><span>Full name</span><input type="text" name="name" autocomplete="name" required></label>
+                  <label><span>Email address</span><input type="email" name="email" autocomplete="email" required></label>
+                  <label><span>Specialties</span><input type="text" name="specialties" placeholder="Strength, Mobility" data-specialties-input></label>
+                  <label><span>Hourly rate (Rs)</span><input type="number" name="rate" min="0" step="50" data-rate-input></label>
+                  <label class="form-span"><span>Short bio</span><textarea name="bio" rows="3" placeholder="How you coach, in one honest line." data-bio-input></textarea></label>
+                  <label class="form-span"><span>Avatar URL</span><input type="url" name="avatar" placeholder="https://images.unsplash.com/..." data-avatar-input></label>
+                </div>
+                <div class="form-submit-row"><span>Last updated <b data-profile-updated>just now</b></span><button class="primary-button" type="submit">Save changes <svg><use href="#i-check"></use></svg></button></div>
+              </form>
+            </article>
+            <article class="panel preferences-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Control room</p><h2>Preferences</h2></div></div>
+              <div class="toggle-list">
+                <label class="toggle-row"><span><strong>Session reminders</strong><small>Nudge me 90 minutes before a booked session.</small></span><input type="checkbox" name="sessionReminders" data-coach-toggle><i></i></label>
+                <label class="toggle-row"><span><strong>Client updates</strong><small>Tell me when a client goes quiet or hits a PR.</small></span><input type="checkbox" name="clientUpdates" data-coach-toggle><i></i></label>
+                <label class="toggle-row"><span><strong>Weekly digest</strong><small>Sunday summary of retention, ratings and income.</small></span><input type="checkbox" name="weeklyDigest" data-coach-toggle><i></i></label>
+              </div>
+              <div class="settings-callout"><span class="pulse-mark"><svg><use href="#i-bolt"></use></svg></span><p><strong>Quiet by default.</strong><small>Only the signals that change your next session.</small></p></div>
+            </article>
+          </div>
+          <article class="panel availability-panel schedule-editor">
+            <div class="panel-heading"><div><p class="panel-kicker">Availability schedule</p><h2>When you coach</h2></div><span class="panel-note" data-schedule-state>Saved</span></div>
+            <div class="availability-days" data-schedule-days></div>
+            <div class="availability-times">
+              <label><span>From</span><input type="time" data-schedule-start value="06:00"></label>
+              <label><span>To</span><input type="time" data-schedule-end value="20:00"></label>
+              <button class="outline-button" type="button" data-schedule-save>Update hours <svg><use href="#i-check"></use></svg></button>
+            </div>
+          </article>
+          <article class="danger-zone">
+            <div><p class="panel-kicker">Danger zone</p><h2>Leave the room.</h2><p>Log out on this device. Your coaching data stays saved in this browser.</p></div>
+            <button class="danger-button" type="button" data-logout><svg><use href="#i-logout"></use></svg> Log out</button>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <div class="loading-screen" data-loading><span class="loading-logo">STACKLY COACH</span><span class="loading-line"></span><span class="loading-skeleton" aria-hidden="true"><i></i><i></i><i></i></span></div>
+  <script src="data.js"></script>
+  <script src="coach.js"></script>
+</body>
+</html>

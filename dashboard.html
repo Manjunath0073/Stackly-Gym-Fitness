@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="description" content="Your Stackly Gym & Fitness Studio member dashboard.">
+  <title>Member Dashboard | Stackly Gym & Fitness Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M7 6v12M17 6v12M20 9v6M7 12h10"/><path d="M2.5 9v6M21.5 9v6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8.8 12l-1.3 9 4.5-2.7 4.5 2.7-1.3-9"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="M16 16l5 5"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4.4 0 7-2.8 7-6.7 0-3.2-1.7-5.6-4.6-8.3.1 2.5-1 3.7-2 4.3.2-3.9-1.5-6.8-4.1-9.3.1 4.2-3.3 6.2-3.3 11.6C5 18.9 7.7 22 12 22z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.4-8.8 10.5-8.8 10.5S3.2 14.2 3.2 8.8A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.4z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M8 12h10"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4zM13.5 6.5l4 4"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <div class="drawer-scrim" data-drawer-close></div>
+    <aside class="sidebar" aria-label="Member navigation">
+      <div class="sidebar-top">
+        <a class="brand" href="#overview" aria-label="Stackly dashboard overview"><span class="logo-image" aria-hidden="true"></span><span class="brand-context">MEMBER OS</span></a>
+        <button class="icon-button sidebar-close" type="button" aria-label="Close navigation" data-drawer-close><svg><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="member-mini">
+        <div class="avatar avatar-small"><img data-user-avatar alt=""><span data-avatar-initials>AM</span></div>
+        <div><strong data-user-name>Alex Morgan</strong><span><i class="status-dot"></i><span data-user-tier>UNLIMITED</span></span></div>
+        <button class="icon-button mini-more" type="button" aria-label="Open profile settings" data-route="settings"><svg><use href="#i-more"></use></svg></button>
+      </div>
+      <p class="nav-label">Your training</p>
+      <nav class="side-nav" aria-label="Dashboard views">
+        <a href="#overview" data-route="overview"><svg><use href="#i-grid"></use></svg><span>Overview</span><b></b></a>
+        <a href="#workouts" data-route="workouts"><svg><use href="#i-dumbbell"></use></svg><span>Workouts</span><b></b></a>
+        <a href="#schedule" data-route="schedule"><svg><use href="#i-calendar"></use></svg><span>Schedule</span><b></b></a>
+        <a href="#progress" data-route="progress"><svg><use href="#i-trend"></use></svg><span>Progress</span><b></b></a>
+      </nav>
+      <p class="nav-label nav-label-second">Account</p>
+      <nav class="side-nav" aria-label="Account views">
+        <a href="#membership" data-route="membership"><svg><use href="#i-card"></use></svg><span>Membership</span><b></b></a>
+        <a href="#achievements" data-route="achievements"><svg><use href="#i-award"></use></svg><span>Achievements</span><b></b></a>
+        <a href="#settings" data-route="settings"><svg><use href="#i-sliders"></use></svg><span>Settings</span><b></b></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-pulse"><span class="pulse-mark"><svg><use href="#i-bolt"></use></svg></span><span><strong>Keep the<br>standard high.</strong><small>Stackly / Salem</small></span></div>
+        <button class="collapse-button" type="button" aria-label="Collapse sidebar" data-sidebar-collapse><svg><use href="#i-chevron"></use></svg><span>Collapse menu</span></button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-start">
+          <a class="topbar-brand" href="#overview" aria-label="Stackly dashboard overview"><span class="logo-image" aria-hidden="true"></span></a>
+          <button class="icon-button mobile-menu" type="button" aria-label="Open navigation" data-drawer-open><svg><use href="#i-menu"></use></svg></button>
+          <div class="crumb"><span>STACKLY</span><i>/</i><strong data-current-view>OVERVIEW</strong></div>
+        </div>
+        <div class="topbar-tools">
+          <div class="global-search">
+            <svg><use href="#i-search"></use></svg>
+            <label class="sr-only" for="global-search">Search dashboard</label>
+            <input id="global-search" type="search" placeholder="Search your stack" autocomplete="off" data-global-search>
+            <kbd>/</kbd>
+            <div class="search-results" data-search-results hidden></div>
+          </div>
+          <div class="topbar-action-wrap">
+            <button class="icon-button notification-trigger" type="button" aria-label="Notifications" aria-expanded="false" data-notifications><svg><use href="#i-bell"></use></svg><i class="notification-dot"></i></button>
+            <div class="popover notification-popover" data-notification-panel hidden>
+              <div class="popover-heading"><span>Notifications</span><button type="button" data-mark-read>Mark all read</button></div>
+              <div data-notification-list></div>
+            </div>
+          </div>
+          <div class="topbar-action-wrap profile-wrap">
+            <button class="profile-trigger" type="button" aria-expanded="false" data-profile-toggle><span class="avatar avatar-top"><img data-user-avatar alt=""><span data-avatar-initials>AM</span></span><span class="profile-trigger-copy"><strong data-user-name>Alex Morgan</strong><small data-user-tier>UNLIMITED</small></span><svg><use href="#i-down"></use></svg></button>
+            <div class="popover profile-popover" data-profile-panel hidden>
+              <div class="profile-popover-head"><span class="avatar avatar-medium"><img data-user-avatar alt=""><span data-avatar-initials>AM</span></span><div><strong data-user-name>Alex Morgan</strong><small data-user-email>alex@stackly.fit</small></div></div>
+              <a href="#settings" data-route="settings"><svg><use href="#i-edit"></use></svg> Edit profile</a>
+              <a href="#membership" data-route="membership"><svg><use href="#i-card"></use></svg> Membership</a>
+              <button type="button" class="logout-link" data-logout><svg><use href="#i-logout"></use></svg> Log out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" class="main-content">
+        <section class="view is-active" data-view="overview" aria-labelledby="overview-title">
+          <div class="view-topline">
+            <div><p class="eyebrow"><span></span> Member / Overview</p><h1 id="overview-title">Good morning, <em data-user-first>Alex</em>.</h1><p class="view-lede">The room is ready when you are. Here is your week at a glance.</p></div>
+            <div class="view-meta"><span class="date-stamp" data-today-label>Thursday, 17 September 2026</span><strong class="live-clock" data-clock>09:41:22</strong><a class="outline-button" href="#settings" data-route="settings"><svg><use href="#i-edit"></use></svg> Edit profile</a></div>
+          </div>
+          <div class="stat-grid">
+            <article class="stat-card stat-card-red" data-stat-card="workouts"><span class="stat-label">Workouts this month <svg><use href="#i-dumbbell"></use></svg></span><strong data-stat-value="workouts">12</strong><span class="stat-foot"><b>+18%</b> vs last month</span><span class="stat-spark spark-one"></span></article>
+            <article class="stat-card" data-stat-card="calories"><span class="stat-label">Calories burned <svg><use href="#i-flame"></use></svg></span><strong data-stat-value="calories">18,420</strong><span class="stat-foot"><b>+9%</b> vs last month</span><span class="stat-spark spark-two"></span></article>
+            <article class="stat-card" data-stat-card="minutes"><span class="stat-label">Active minutes <svg><use href="#i-bolt"></use></svg></span><strong data-stat-value="minutes">486</strong><span class="stat-foot"><b>+42 min</b> this week</span><span class="stat-spark spark-three"></span></article>
+            <article class="stat-card" data-stat-card="streak"><span class="stat-label">Day streak <svg><use href="#i-target"></use></svg></span><strong data-stat-value="streak">08<span class="stat-unit"> days</span></strong><span class="stat-foot"><b>Personal best</b> is 14 days</span><span class="stat-spark spark-four"></span></article>
+          </div>
+          <div class="overview-grid">
+            <article class="panel activity-panel">
+              <div class="panel-heading"><div><p class="panel-kicker">Movement load</p><h2>Weekly activity</h2></div><div class="chart-legend"><span><i class="legend-line"></i> Active minutes</span><button class="select-button" type="button">Last 7 days <svg><use href="#i-down"></use></svg></button></div></div>
+              <div class="chart-wrap activity-chart-wrap" data-chart-shell="activity"><svg class="data-chart activity-chart" data-chart="activity" viewBox="0 0 800 290" role="img" aria-label="Weekly active minutes area chart"><defs><linearGradient id="activity-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E24B4A" stop-opacity=".4"/><stop offset="1" stop-color="#E24B4A" stop-opacity="0"/></linearGradient></defs><g class="chart-grid" data-chart-grid></g><path class="chart-area" data-chart-area></path><path class="chart-line" data-chart-line></path><g data-chart-points></g><g class="chart-labels" data-chart-labels></g></svg><div class="chart-tooltip" data-chart-tooltip role="status"></div></div>
+              <div class="chart-foot"><span><i class="live-indicator"></i> Live from your logged sessions</span><strong>Goal pace <b>+14%</b></strong></div>
+            </article>
+            <article class="panel goal-panel"><div class="panel-heading"><div><p class="panel-kicker">This week</p><h2>Goal completion</h2></div><button class="icon-button" type="button" aria-label="Goal details"><svg><use href="#i-more"></use></svg></button></div><div class="donut-stage"><svg class="donut-chart" data-chart="donut" viewBox="0 0 140 140" role="img" aria-label="78 percent of weekly goal complete"><circle class="donut-track" cx="70" cy="70" r="54"></circle><circle class="donut-ring" data-donut-ring cx="70" cy="70" r="54" tabindex="0"></circle></svg><div class="donut-label"><strong data-goal-value>78</strong><span>% complete</span></div><div class="chart-tooltip donut-tooltip" data-donut-tooltip role="status"></div></div><div class="goal-caption"><span>Weekly target</span><strong><b data-goal-complete>7</b> / <span data-goal-target>9</span> sessions</strong></div><div class="goal-next"><span class="pulse-mark"><svg><use href="#i-target"></use></svg></span><p><strong>One more session</strong><small>and you close the week at 100%</small></p><a href="#schedule" data-route="schedule" aria-label="Open schedule"><svg><use href="#i-arrow"></use></svg></a></div></article>
+          </div>
+          <div class="overview-lower">
+            <article class="next-class-card"><div class="next-class-image"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?fit=crop&amp;fm=webp&amp;q=80&amp;w=800" alt="Athletes training with weights"><span class="image-index">UP NEXT / 01</span><span class="image-play"><svg><use href="#i-play"></use></svg></span></div><div class="next-class-copy"><div class="next-class-label"><span><i></i> Up next</span><time data-next-class-time>Today / 18:30</time></div><h2 data-next-class-name>Strength Lab</h2><p data-next-class-details>Coach Maya Chen <span>/</span> Studio B <span>/</span> 50 min</p><div class="next-class-foot"><span class="spots-left"><b data-next-class-spots>4</b> spots left</span><button class="primary-button" type="button" data-next-class-action>Book class <svg><use href="#i-arrow"></use></svg></button></div></div></article>
+            <article class="quick-panel"><div class="panel-heading"><div><p class="panel-kicker">Make it count</p><h2>Quick actions</h2></div></div><div class="quick-actions"><a href="#workouts" data-route="workouts"><span class="quick-icon"><svg><use href="#i-play"></use></svg></span><span><strong>Start a workout</strong><small>Pick up where you left off</small></span><svg class="quick-arrow"><use href="#i-arrow"></use></svg></a><a href="#schedule" data-route="schedule"><span class="quick-icon"><svg><use href="#i-calendar"></use></svg></span><span><strong>Book a class</strong><small>Find your next session</small></span><svg class="quick-arrow"><use href="#i-arrow"></use></svg></a><a href="#progress" data-route="progress"><span class="quick-icon"><svg><use href="#i-trend"></use></svg></span><span><strong>Log a result</strong><small>Keep your progress honest</small></span><svg class="quick-arrow"><use href="#i-arrow"></use></svg></a></div></article>
+          </div>
+        </section>
+
+        <section class="view" data-view="workouts" aria-labelledby="workouts-title" hidden>
+          <div class="view-topline compact-topline"><div><p class="eyebrow"><span></span> Member / Workouts</p><h1 id="workouts-title">Do the work.</h1><p class="view-lede">A focused library for the days you want to move with intent.</p></div><div class="view-meta"><span class="metric-callout"><strong data-workout-complete-count>3</strong><small>completed this month</small></span><button class="primary-button" type="button" data-route="schedule">Book a class <svg><use href="#i-arrow"></use></svg></button></div></div>
+          <div class="workout-toolbar"><div class="filter-tabs" role="tablist" aria-label="Filter workouts"><button class="filter-tab is-active" type="button" data-workout-filter="All" role="tab" aria-selected="true">All</button><button class="filter-tab" type="button" data-workout-filter="Strength" role="tab" aria-selected="false">Strength</button><button class="filter-tab" type="button" data-workout-filter="HIIT" role="tab" aria-selected="false">HIIT</button><button class="filter-tab" type="button" data-workout-filter="Cardio" role="tab" aria-selected="false">Cardio</button><button class="filter-tab" type="button" data-workout-filter="Yoga" role="tab" aria-selected="false">Yoga</button></div><label class="inline-search"><svg><use href="#i-search"></use></svg><span class="sr-only">Search workouts</span><input type="search" placeholder="Search workouts" data-workout-search></label></div>
+          <article class="featured-workout"><div class="featured-workout-image"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?fit=crop&amp;fm=webp&amp;q=80&amp;w=800" alt="Athlete preparing for a strength workout"><span>STACKLY / SESSION 08</span></div><div class="featured-workout-copy"><p class="panel-kicker">Recommended for your week</p><h2>Power / <em>08</em></h2><p>A compact full-body session built around compound lifts, clean tempo, and the kind of finish that follows you home.</p><div class="featured-meta"><span><b>42</b> min</span><span><b>High</b> intensity</span><span><b>560</b> kcal</span></div><button class="dark-button" type="button" data-featured-start><svg><use href="#i-play"></use></svg> Start session</button></div><span class="featured-number">08</span></article>
+          <div class="section-line"><h2>Training library</h2><span data-workout-result-count>6 sessions</span></div>
+          <div class="workout-grid" data-workout-list></div>
+          <div class="empty-state" data-workout-empty hidden><span class="pulse-mark"><svg><use href="#i-search"></use></svg></span><h3>No sessions found.</h3><p>Try another filter or search term.</p></div>
+        </section>
+
+        <section class="view" data-view="schedule" aria-labelledby="schedule-title" hidden>
+          <div class="view-topline compact-topline"><div><p class="eyebrow"><span></span> Member / Schedule</p><h1 id="schedule-title">Own your week.</h1><p class="view-lede">Book the room before the week books you.</p></div><div class="view-meta"><span class="schedule-status"><i class="live-indicator"></i> Studio live <b>06:00-23:00</b></span></div></div>
+          <div class="schedule-toolbar"><div class="week-switcher"><button class="icon-button" type="button" aria-label="Previous week" data-week-shift="-1"><svg><use href="#i-chevron"></use></svg></button><div><span>This week</span><strong data-week-label>14-20 September 2026</strong></div><button class="icon-button flip-x" type="button" aria-label="Next week" data-week-shift="1"><svg><use href="#i-chevron"></use></svg></button></div><div class="schedule-key"><span><i class="key-dot booked"></i> Booked</span><span><i class="key-dot available"></i> Available</span><button class="outline-button" type="button" data-week-today>Jump to today</button></div></div>
+          <div class="calendar-scroll"><div class="calendar" data-calendar><div class="calendar-head"><span class="time-head">Local time</span><div data-calendar-days></div></div><div class="calendar-body"><div class="time-column" data-time-column></div><div class="calendar-track" data-calendar-track><div class="hour-lines" data-hour-lines></div><div class="class-layer" data-class-layer></div></div></div></div></div>
+          <div class="schedule-note"><span class="pulse-mark"><svg><use href="#i-bolt"></use></svg></span><p><strong>Showing up is the whole point.</strong><small>Classes can be cancelled up to 2 hours before start time.</small></p><a href="#settings" data-route="settings">Manage reminders <svg><use href="#i-arrow"></use></svg></a></div>
+        </section>
+
+        <section class="view" data-view="progress" aria-labelledby="progress-title" hidden>
+          <div class="view-topline compact-topline"><div><p class="eyebrow"><span></span> Member / Progress</p><h1 id="progress-title">Proof of work.</h1><p class="view-lede">The quiet evidence that your consistency is changing something.</p></div><div class="view-meta"><span class="metric-callout"><strong>84<span>%</span></strong><small>consistency score</small></span><button class="outline-button" type="button" data-export-progress><svg><use href="#i-download"></use></svg> Export progress</button></div></div>
+          <div class="progress-hero"><div class="progress-hero-copy"><p class="panel-kicker">Since joining / February 2024</p><strong>+18%</strong><h2>Stronger than<br><em>your starting point.</em></h2><p>You have stacked 42 sessions, hit 6 personal records, and kept your longest training gap to just 4 days.</p><div class="progress-proof"><span class="avatar-stack"><i>AM</i><i>MC</i><i>+</i></span><span>Tracked with Coach Maya<br><b>Last check-in / 4 days ago</b></span></div></div><div class="progress-hero-stat"><span>12 month trend</span><strong>+7.4<small>kg</small></strong><svg viewBox="0 0 260 90" aria-hidden="true"><path d="M0 71 C30 66 34 58 58 63 S90 45 108 52 S138 31 157 38 S193 22 211 29 S237 10 260 15" fill="none" stroke="#E24B4A" stroke-width="2"/><path d="M0 71 C30 66 34 58 58 63 S90 45 108 52 S138 31 157 38 S193 22 211 29 S237 10 260 15V90H0Z" fill="#0A0A0A" opacity=".08"/></svg><span class="progress-hero-foot"><b>+14.2%</b> from your first check-in</span></div></div>
+          <div class="progress-charts"><article class="panel progress-line-panel"><div class="panel-heading"><div><p class="panel-kicker">Body composition</p><h2>Weight trend</h2></div><span class="chart-stat"><strong>74.8</strong> kg <b>-2.4%</b></span></div><div class="chart-wrap line-chart-wrap" data-chart-shell="weight"><svg class="data-chart line-chart" data-chart="weight" viewBox="0 0 760 260" role="img" aria-label="Weight trend over the last 12 months"><g class="chart-grid" data-chart-grid></g><path class="chart-area" data-chart-area></path><path class="chart-line" data-chart-line></path><g data-chart-points></g><g class="chart-labels" data-chart-labels></g></svg><div class="chart-tooltip" data-chart-tooltip role="status"></div></div></article><article class="panel prs-panel"><div class="panel-heading"><div><p class="panel-kicker">Strength markers</p><h2>Personal records</h2></div><span class="chart-stat"><strong>+12%</strong> this year</span></div><div class="chart-wrap bar-chart-wrap" data-chart-shell="prs"><svg class="data-chart bar-chart" data-chart="prs" viewBox="0 0 500 260" role="img" aria-label="Personal record strength bar chart"><g class="chart-grid" data-chart-grid></g><g data-chart-bars></g><g class="chart-labels" data-chart-labels></g></svg><div class="chart-tooltip" data-chart-tooltip role="status"></div></div></article></div>
+          <div class="progress-lower"><article class="panel performance-panel"><div class="panel-heading"><div><p class="panel-kicker">Capability map</p><h2>Built across the board</h2></div><span class="panel-note">Goal / 100</span></div><div class="performance-bars" data-performance-bars></div><div class="performance-foot"><span>Last assessed 04 Sep 2026</span><a href="#settings" data-route="settings">Update goals <svg><use href="#i-arrow"></use></svg></a></div></article><article class="panel records-panel"><div class="panel-heading"><div><p class="panel-kicker">Your milestones</p><h2>Personal records</h2></div><a href="#achievements" data-route="achievements" class="text-link">View all <svg><use href="#i-arrow"></use></svg></a></div><div class="record-list" data-record-list></div></article></div>
+          <article class="before-after panel"><div class="before-after-copy"><p class="panel-kicker">The visual receipt</p><h2>Same discipline.<br><em>Different frame.</em></h2><p>Two check-ins. Eleven months of choosing the next rep.</p><div class="before-after-labels"><span>FEB 24</span><span>JAN 25</span></div></div><div class="comparison-slider" data-comparison><div class="comparison-image after-image"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?fit=crop&amp;fm=webp&amp;q=80&amp;w=800" alt="Member progress check-in, latest"><span>NOW / 2025</span></div><div class="comparison-image before-image" data-before-image><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?fit=crop&amp;fm=webp&amp;q=80&amp;w=800" alt="Member progress check-in, starting point"><span>THEN / 2024</span></div><label class="comparison-handle"><span class="sr-only">Compare before and after</span><input type="range" min="0" max="100" value="50" data-comparison-input><i><b></b><b></b></i></label></div></article>
+        </section>
+
+        <section class="view" data-view="membership" aria-labelledby="membership-title" hidden>
+          <div class="view-topline compact-topline"><div><p class="eyebrow"><span></span> Member / Membership</p><h1 id="membership-title">Your access, elevated.</h1><p class="view-lede">Everything you need to keep the standard high, all in one place.</p></div><div class="view-meta"><span class="member-since">Member since <b data-user-join>February 2024</b></span></div></div>
+          <div class="membership-grid"><article class="plan-card"><div class="plan-card-top"><div><p class="panel-kicker">Current plan</p><span class="tier-badge" data-tier-badge>UNLIMITED</span></div><span class="plan-mark">S / 01</span></div><h2>Unlimited<br><em>Access.</em></h2><p class="plan-copy">The full Stackly room, every day. Built for the people who do not need a reason to show up.</p><div class="plan-price"><strong>Rs 3,999</strong><span>/ month</span></div><div class="plan-card-foot"><span>Renews <b data-renewal-date>04 October 2026</b></span><button class="light-button" type="button" data-manage-plan>Manage plan <svg><use href="#i-arrow"></use></svg></button></div></article><article class="usage-card panel"><div class="panel-heading"><div><p class="panel-kicker">September usage</p><h2>Use the room.</h2></div><span class="usage-number"><strong data-usage-percent>68</strong><small>%</small></span></div><div class="usage-meter"><span data-usage-bar></span></div><div class="usage-detail"><span><b data-classes-used>17</b> classes used</span><span><b data-classes-included>25</b> included</span></div><div class="usage-list"><span><i class="usage-check"><svg><use href="#i-check"></use></svg></i> Open gym access</span><span><i class="usage-check"><svg><use href="#i-check"></use></svg></i> Unlimited classes</span><span><i class="usage-check"><svg><use href="#i-check"></use></svg></i> Recovery zone access</span><span><i class="usage-check"><svg><use href="#i-check"></use></svg></i> Monthly coach check-in</span></div></article></div>
+          <div class="membership-lower"><article class="panel benefit-panel"><div class="panel-heading"><div><p class="panel-kicker">Plan benefits</p><h2>What is included.</h2></div><span class="panel-note">4 / 4 active</span></div><div class="benefit-grid"><div><span class="benefit-number">01</span><strong>Train<br>anytime.</strong><small>24 / 7 floor access</small></div><div><span class="benefit-number">02</span><strong>Move with<br>purpose.</strong><small>All group classes</small></div><div><span class="benefit-number">03</span><strong>Recover<br>better.</strong><small>Recovery zone access</small></div><div><span class="benefit-number">04</span><strong>Stay<br>accountable.</strong><small>Coach check-ins</small></div></div></article><article class="panel invoices-panel"><div class="panel-heading"><div><p class="panel-kicker">Billing history</p><h2>Invoices</h2></div><button class="icon-button" type="button" aria-label="Download all invoices" data-download-invoices><svg><use href="#i-download"></use></svg></button></div><div class="invoice-table-wrap"><table><thead><tr><th>Date</th><th>Reference</th><th>Status</th><th>Amount</th><th><span class="sr-only">Download</span></th></tr></thead><tbody data-invoices></tbody></table></div></article></div>
+        </section>
+
+        <section class="view" data-view="achievements" aria-labelledby="achievements-title" hidden>
+          <div class="view-topline compact-topline"><div><p class="eyebrow"><span></span> Member / Achievements</p><h1 id="achievements-title">Earn your edge.</h1><p class="view-lede">Small proof points, stacked until they become who you are.</p></div><div class="view-meta"><span class="metric-callout"><strong data-earned-count>8</strong><small>badges unlocked</small></span></div></div>
+          <div class="achievement-layout"><article class="panel badge-panel"><div class="panel-heading"><div><p class="panel-kicker">Badge cabinet</p><h2>Keep collecting.</h2></div><span class="panel-note"><b data-badge-progress>8</b> / 12 earned</span></div><div class="badge-grid" data-badge-grid></div></article><aside class="leaderboard-card"><div class="leaderboard-head"><div><p class="panel-kicker">September / all members</p><h2>Leaderboard</h2></div><span class="leaderboard-mark">01</span></div><div class="leaderboard-list" data-leaderboard></div><div class="leaderboard-foot"><span>Showing top 5 of 128 members</span><a href="#progress" data-route="progress">Your progress <svg><use href="#i-arrow"></use></svg></a></div></aside></div>
+          <article class="milestone-banner"><div><p class="panel-kicker">Next unlock</p><h2>Three more sessions<br>to <em>Iron Will.</em></h2></div><div class="milestone-progress"><div><span><b>6</b> / 9 sessions</span><strong>67%</strong></div><div class="meter"><span style="width:67%"></span></div><small>Keep the chain moving this week.</small></div><span class="milestone-icon"><svg><use href="#i-award"></use></svg></span></article>
+        </section>
+
+        <section class="view" data-view="settings" aria-labelledby="settings-title" hidden>
+          <div class="view-topline compact-topline"><div><p class="eyebrow"><span></span> Member / Settings</p><h1 id="settings-title">Make it yours.</h1><p class="view-lede">Your profile, your rhythm, your preferences.</p></div><div class="view-meta"><span class="save-state" data-save-state>All changes saved</span></div></div>
+          <div class="settings-layout"><article class="panel profile-panel"><div class="panel-heading"><div><p class="panel-kicker">Identity</p><h2>Profile details</h2></div><span class="panel-note">Visible to your coaches</span></div><form class="profile-form" data-profile-form><div class="profile-form-top"><div class="settings-avatar avatar-large"><img data-settings-avatar alt="Profile avatar"><span data-settings-initials>AM</span></div><div><button class="outline-button" type="button" data-focus-avatar>Change avatar</button><p>Use a square image URL for the cleanest crop.</p></div></div><div class="form-grid"><label><span>Full name</span><input type="text" name="name" autocomplete="name" required></label><label><span>Email address</span><input type="email" name="email" autocomplete="email" required></label><label class="form-span"><span>Avatar URL</span><input type="url" name="avatar" placeholder="https://images.unsplash.com/..." data-avatar-input></label><label class="form-span"><span>Training goals</span><textarea name="goals" rows="3" placeholder="What are you working toward?" data-goals-input></textarea></label></div><div class="form-submit-row"><span>Last updated <b data-profile-updated>just now</b></span><button class="primary-button" type="submit">Save changes <svg><use href="#i-check"></use></svg></button></div></form></article><article class="panel preferences-panel"><div class="panel-heading"><div><p class="panel-kicker">Control room</p><h2>Preferences</h2></div></div><div class="toggle-list"><label class="toggle-row"><span><strong>Class reminders</strong><small>Get a nudge 2 hours before your booked class.</small></span><input type="checkbox" name="classReminders" data-notification-toggle><i></i></label><label class="toggle-row"><span><strong>Progress notes</strong><small>Receive your weekly progress recap.</small></span><input type="checkbox" name="progressNotes" data-notification-toggle><i></i></label><label class="toggle-row"><span><strong>Studio updates</strong><small>Occasional news from the Stackly room.</small></span><input type="checkbox" name="studioUpdates" data-notification-toggle><i></i></label></div><div class="settings-callout"><span class="pulse-mark"><svg><use href="#i-bolt"></use></svg></span><p><strong>Good defaults.</strong><small>We only send what helps you keep showing up.</small></p></div></article></div>
+          <article class="danger-zone"><div><p class="panel-kicker">Danger zone</p><h2>Leave the room.</h2><p>Log out on this device. Your saved dashboard state stays local to this browser.</p></div><button class="danger-button" type="button" data-logout><svg><use href="#i-logout"></use></svg> Log out</button></article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <div class="loading-screen" data-loading><span class="loading-logo">STACKLY</span><span class="loading-line"></span><span class="loading-skeleton" aria-hidden="true"><i></i><i></i><i></i></span></div>
+  <script src="data.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

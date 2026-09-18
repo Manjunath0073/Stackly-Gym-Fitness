@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Responsive harness</title>
+<style>html,body{margin:0;background:#333}iframe{border:0;display:block}</style></head>
+<body><iframe id="frame" src="_overflow-check.html"></iframe>
+<script>
+const query = new URLSearchParams(location.search);
+const frame = document.getElementById("frame");
+frame.width = Number(query.get("w") || 320);
+frame.height = Number(query.get("h") || 1500);
+</script></body></html>
