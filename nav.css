@@ -58,12 +58,12 @@
 .sk-menu-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; }
 .sk-menu-nav { margin: auto 0; padding: 14px 0; }
 .sk-menu-list { display: flex; flex-direction: column; gap: 2px; margin: 0; padding: 0; list-style: none; }
-.sk-menu-link { position: relative; display: flex; align-items: center; gap: 14px; min-height: 58px; color: var(--sk-white); text-decoration: none; opacity: 0; transform: translateY(26px); transition: opacity .5s ease, transform .6s var(--sk-ease); transition-delay: 0s; }
+.sk-menu-link { position: relative; display: flex; align-items: center; gap: 14px; min-height: 58px; padding-bottom: 10px; color: var(--sk-white); text-decoration: none; opacity: 0; transform: translateY(26px); transition: opacity .5s ease, transform .6s var(--sk-ease); transition-delay: 0s; }
 .sk-menu.is-open .sk-menu-link { opacity: 1; transform: translateY(0); transition-delay: calc(var(--sk-i, 0) * 60ms + 130ms); }
-.sk-menu-link::after { position: absolute; bottom: 7px; left: 0; width: 100%; height: 2px; background: var(--sk-red); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .45s var(--sk-ease); }
+.sk-menu-link::after { position: absolute; bottom: 2px; left: 0; width: 100%; height: 2px; background: var(--sk-red); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .45s var(--sk-ease); }
 .sk-menu-link:hover::after, .sk-menu-link:focus-visible::after, .sk-menu-link.is-active::after { transform: scaleX(1); }
 .sk-link-index { color: var(--sk-red); font: 700 11px/1 var(--sk-sans); letter-spacing: .16em; }
-.sk-link-label { flex: 1; font: 800 clamp(2.4rem, 11vw, 4.4rem)/.9 var(--sk-display); letter-spacing: -.03em; text-transform: uppercase; transition: transform .45s var(--sk-ease); }
+.sk-link-label { flex: 1; font: 800 clamp(2.4rem, 11vw, 4.4rem)/1 var(--sk-display); letter-spacing: -.03em; text-transform: uppercase; transition: transform .45s var(--sk-ease); }
 .sk-menu-link:hover .sk-link-label, .sk-menu-link:focus-visible .sk-link-label { transform: translateX(6px); }
 .sk-menu-link.is-active .sk-link-label, .sk-menu-link.is-active .sk-link-index { color: var(--sk-red); }
 .sk-link-arrow { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: var(--sk-red); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0; transform: translateX(-8px); transition: opacity .3s ease, transform .4s var(--sk-ease); }
