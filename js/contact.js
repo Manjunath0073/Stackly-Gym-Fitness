@@ -37,6 +37,22 @@
   }
 
   const form = document.querySelector('.contact-form');
+
+  const mapWrap = document.querySelector('.map-wrap');
+  const mapOverlay = mapWrap?.querySelector('.map-overlay');
+  const activateMap = () => mapWrap?.classList.add('is-active');
+  const deactivateMap = () => mapWrap?.classList.remove('is-active');
+  mapOverlay?.addEventListener('click', activateMap);
+  mapOverlay?.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      activateMap();
+    }
+  });
+  mapWrap?.addEventListener('mouseleave', deactivateMap);
+  document.addEventListener('click', event => {
+    if (mapWrap && !mapWrap.contains(event.target)) deactivateMap();
+  });
   if (form) {
     const nameInput = form.querySelector('#cf-name');
     const emailInput = form.querySelector('#cf-email');

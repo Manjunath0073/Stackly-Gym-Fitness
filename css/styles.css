@@ -415,7 +415,8 @@ h2 { margin-bottom: 0; font-size: clamp(2.9rem, 4.8vw, 5.2rem); line-height: .88
   .why-image strong { font-size: 3rem; }
   .feature-item h3 { font-size: 1.55rem; }
   .gallery-masonry { columns: 1; }
-  .gallery-item, .gallery-item.gallery-tall, .gallery-item.gallery-short, .gallery-item.gallery-wide { height: 380px; }
+.gallery-item, .gallery-item.gallery-tall, .gallery-item.gallery-short, .gallery-item.gallery-wide { height: 380px; }
+   .price-card.price-featured { padding-top: 56px; }
    .footer-grid { grid-template-columns: 1fr; gap: 35px; }
    .footer-grid > .footer-column { min-height: auto; padding: 0; border-left: 0; }
    .footer-invite { min-height: 220px; }
