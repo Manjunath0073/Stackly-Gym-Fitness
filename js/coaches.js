@@ -78,7 +78,7 @@
 
   const matchData = {
     stronger: { image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?fit=crop&fm=webp&q=80&w=1440', alt: 'Marcus Cole, recommended coach', kicker: 'YOUR MATCH / STRENGTH', name: 'Marcus Cole', copy: 'Build strength with a clear plan and a coach who knows how to make the next rep count.' },
-    fitter: { image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?fit=crop&fm=webp&q=80&w=1024', alt: 'Nina Reyes, recommended coach', kicker: 'YOUR MATCH / CONDITIONING', name: 'Nina Reyes', copy: 'Build an engine that lasts with smart intervals, clean pacing, and a reason to come back.' },
+    fitter: { image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?fit=crop&fm=webp&q=80&w=960', alt: 'Nina Reyes, recommended coach', kicker: 'YOUR MATCH / CONDITIONING', name: 'Nina Reyes', copy: 'Build an engine that lasts with smart intervals, clean pacing, and a reason to come back.' },
     moving: { image: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?fit=crop&fm=webp&q=80&w=800', alt: 'Tori Williams, recommended coach', kicker: 'YOUR MATCH / MOVEMENT', name: 'Tori Williams', copy: 'Find more range, less friction, and a body that trusts the work you ask it to do.' }
   };
   const matchButtons = [...document.querySelectorAll('.match-option')];

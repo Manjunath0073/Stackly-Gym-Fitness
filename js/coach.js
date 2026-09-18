@@ -397,7 +397,8 @@
       const session = effectiveSession(item);
       const top = (parseTime(session.start) - 360) / 60 * 74 + 4;
       const height = session.duration / 60 * 74 - 8;
-      return `<button class="calendar-session is-${esc(session.status)} ${session.id === selectedSessionId ? "is-selected" : ""}" type="button" data-session-id="${esc(session.id)}" data-type="${esc(session.type)}" aria-pressed="${session.id === selectedSessionId}" aria-label="${esc(session.title)} with ${esc(session.client)} at ${esc(session.start)}, ${esc(statusLabel(session.status))}" style="left:calc(${session.day * 14.2857}% + 4px);width:calc(14.2857% - 8px);top:${top}px;height:${height}px"><strong>${esc(session.title)}</strong><span>${esc(session.start)} / ${esc(session.client)}</span><i class="session-state">${esc(statusLabel(session.status))}</i></button>`;
+      const compact = height < 52;
+      return `<button class="calendar-session ${compact ? "is-compact " : ""}is-${esc(session.status)} ${session.id === selectedSessionId ? "is-selected" : ""}" type="button" data-session-id="${esc(session.id)}" data-type="${esc(session.type)}" aria-pressed="${session.id === selectedSessionId}" aria-label="${esc(session.title)} with ${esc(session.client)} at ${esc(session.start)}, ${esc(statusLabel(session.status))}" style="left:calc(${session.day * 14.2857}% + 4px);width:calc(14.2857% - 8px);top:${top}px;height:${height}px"><strong>${esc(session.title)}</strong>${compact ? "" : `<span>${esc(session.start)} / ${esc(session.client)}</span><i class="session-state">${esc(statusLabel(session.status))}</i>`}</button>`;
     }).join("");
   }
 
@@ -820,7 +821,7 @@
     }
     if (event.target.closest("[data-drawer-open]")) { document.body.classList.add("drawer-open"); $(".sidebar")?.classList.add("is-open"); return; }
     if (event.target.closest("[data-drawer-close]")) { closeDrawer(); return; }
-    if (event.target.closest("[data-sidebar-collapse]")) {
+    if (event.target.closest("[data-sidebar-collapse]") && window.innerWidth > 760) {
       document.body.classList.toggle("sidebar-collapsed");
       storage.write("stackly_coach_sidebar", document.body.classList.contains("sidebar-collapsed"));
       return;

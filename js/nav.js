@@ -81,7 +81,6 @@
     const supportsInert = "inert" in menu;
     const desktop = () => window.innerWidth >= 1024;
     let open = false;
-    let lastY = window.scrollY;
     let ticking = false;
 
     document.body.classList.add("sk-nav-ready");
@@ -113,24 +112,16 @@
       document.documentElement.classList.toggle("sk-menu-open", open);
       document.body.classList.toggle("sk-menu-open", open);
       if (open) {
-        nav.classList.remove("is-hidden");
         requestAnimationFrame(() => (closeButton || focusables()[0])?.focus({ preventScroll: true }));
       } else if (!silent) {
         burger?.focus({ preventScroll: true });
       }
     };
 
-    /* Hide on scroll down, show on scroll up */
+    /* Keep the bar fixed; just add a background once the page is scrolled */
     const onScroll = () => {
       ticking = false;
-      const y = window.scrollY;
-      const delta = y - lastY;
-      nav.classList.toggle("is-scrolled", y > 8);
-      if (!open) {
-        if (y > 140 && delta > 4) nav.classList.add("is-hidden");
-        else if (delta < -4 || y <= 140) nav.classList.remove("is-hidden");
-      }
-      lastY = y;
+      nav.classList.toggle("is-scrolled", window.scrollY > 8);
     };
     window.addEventListener("scroll", () => {
       if (!ticking) {

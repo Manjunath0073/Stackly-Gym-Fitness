@@ -59,7 +59,7 @@ h2 { font-size: clamp(2.9rem, 4.8vw, 5.2rem); line-height: .88; }
 /* 1. Editorial membership opening */
 .membership-hero { position: relative; min-height: 850px; overflow: hidden; isolation: isolate; background: var(--black); }
 .membership-hero-image, .membership-hero-overlay { position: absolute; z-index: -2; inset: 0; }
-.membership-hero-image { background: url("https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?fit=crop&fm=webp&q=80&w=800") center/cover; opacity: .36; transform: scale(1.04); }
+.membership-hero-image { background: url("https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?fit=crop&fm=webp&q=80&w=720") center/cover; opacity: .36; transform: scale(1.04); }
 .membership-hero-overlay { z-index: -1; background: radial-gradient(circle at 50% 45%, rgba(226, 75, 74, .15), transparent 28%), linear-gradient(180deg, rgba(10, 10, 10, .9), rgba(10, 10, 10, .55) 55%, var(--black)); }
 .membership-hero-content { padding-top: 150px; text-align: center; }
 .membership-hero h1 { margin-bottom: 28px; font-size: clamp(5rem, 11vw, 10rem); line-height: .76; }

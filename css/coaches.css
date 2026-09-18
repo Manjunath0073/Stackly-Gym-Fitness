@@ -59,7 +59,7 @@ h2 { font-size: clamp(2.9rem, 4.8vw, 5.2rem); line-height: .88; }
 /* 1. Opening roster */
 .coach-hero { position: relative; min-height: 900px; overflow: hidden; isolation: isolate; background: var(--black); }
 .coach-hero-image, .coach-hero-overlay { position: absolute; z-index: -2; inset: 0; }
-.coach-hero-image { background: url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?fit=crop&fm=webp&q=80&w=960") center/cover; opacity: .42; transform: scale(1.04); }
+.coach-hero-image { background: url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?fit=crop&fm=webp&q=80&w=880") center/cover; opacity: .42; transform: scale(1.04); }
 .coach-hero-overlay { z-index: -1; background: linear-gradient(180deg, rgba(10, 10, 10, .88) 10%, rgba(10, 10, 10, .42) 52%, var(--black) 88%); }
 .coach-hero-content { padding-top: 155px; text-align: center; }
 .coach-hero h1 { margin-bottom: 28px; font-size: clamp(5rem, 11vw, 10rem); line-height: .76; }

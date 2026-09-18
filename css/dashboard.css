@@ -56,7 +56,10 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-linecap:
 
 /* App frame */
 .app-shell { min-height: 100svh; }
-.sidebar { position: fixed; z-index: 40; inset: 0 auto 0 0; display: flex; width: var(--sidebar); flex-direction: column; border-right: 1px solid var(--line); background: rgba(10, 10, 10, .96); transition: width .45s var(--ease), transform .45s var(--ease); }
+.sidebar { position: fixed; z-index: 40; inset: 0 auto 0 0; display: flex; width: var(--sidebar); flex-direction: column; overflow-x: hidden; overflow-y: auto; border-right: 1px solid var(--line); background: rgba(10, 10, 10, .96); scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .22) transparent; transition: width .45s var(--ease), transform .45s var(--ease); }
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .22); border-radius: 3px; }
 .sidebar-top { display: flex; align-items: center; justify-content: space-between; min-height: var(--topbar); padding: 0 22px; border-bottom: 1px solid var(--line); }
 .brand { display: inline-flex; flex-direction: column; gap: 5px; }
 .logo-image { display: block; width: 123px; height: 32px; background: var(--white); -webkit-mask: url("../images/logo/logo-stackly.webp") no-repeat left center / contain; mask: url("../images/logo/logo-stackly.webp") no-repeat left center / contain; transition: background .25s ease; }
@@ -90,8 +93,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-linecap:
 .collapse-button { display: flex; align-items: center; gap: 11px; width: 100%; min-height: 30px; padding: 0 5px; border: 0; background: transparent; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-align: left; text-transform: uppercase; }
 .collapse-button svg { width: 15px; height: 15px; transition: transform .4s var(--ease); }
 .collapse-button:hover { color: var(--white); }
-.app-main { min-height: 100svh; margin-left: var(--sidebar); transition: margin-left .45s var(--ease); }
-.topbar { position: sticky; z-index: 25; top: 0; display: flex; align-items: center; justify-content: space-between; height: var(--topbar); padding: 0 36px; border-bottom: 1px solid var(--line); background: rgba(10, 10, 10, .82); backdrop-filter: blur(22px); }
+.app-main { min-height: 100svh; margin-left: var(--sidebar); padding-top: var(--topbar); transition: margin-left .45s var(--ease); }
+.topbar { position: fixed; z-index: 25; top: 0; right: 0; left: var(--sidebar); display: flex; align-items: center; justify-content: space-between; height: var(--topbar); padding: 0 36px; border-bottom: 1px solid var(--line); background: rgba(10, 10, 10, .82); backdrop-filter: blur(22px); transition: left .45s var(--ease); }
 .topbar-start, .topbar-tools, .crumb, .profile-trigger, .profile-popover-head { display: flex; align-items: center; }
 .topbar-start { gap: 18px; }
 .topbar-brand { display: inline-flex; align-items: center; }
@@ -378,10 +381,13 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-linecap:
 .calendar-class.is-past { opacity: .42; }
 .calendar-class strong, .calendar-class span { display: block; }
 .calendar-class strong { overflow: hidden; font: 700 17px/.78 var(--display); text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
-.calendar-class span { margin-top: 7px; overflow: hidden; color: var(--muted); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.calendar-class span:not(.class-state) { margin-top: 7px; overflow: hidden; padding-right: 58px; color: var(--muted); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
 .calendar-class.is-booked span { color: rgba(10, 10, 10, .65); }
 .calendar-class .class-state { position: absolute; right: 7px; bottom: 7px; margin: 0; color: var(--red); font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .calendar-class.is-booked .class-state { color: var(--black); }
+.calendar-class.is-compact { padding: 7px 6px; }
+.calendar-class.is-compact strong { font-size: 12px; line-height: 1.1; }
+.calendar-class.is-compact span, .calendar-class.is-compact .class-state { display: none; }
 .schedule-note { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 13px 15px; border: 1px solid var(--line); background: var(--glass); }
 .schedule-note p { flex: 1; }
 .schedule-note strong, .schedule-note small { display: block; }
@@ -657,6 +663,7 @@ body.sidebar-collapsed .collapse-button svg { transform: rotate(180deg); }
   .sidebar.is-open { transform: translateX(0); }
   .sidebar-close, .mobile-menu { display: inline-grid; }
   .mobile-menu { order: -1; }
+  .collapse-button { display: none; }
   .drawer-scrim { position: fixed; z-index: 35; inset: 0; background: rgba(10, 10, 10, .68); opacity: 0; pointer-events: none; transition: opacity .35s ease; }
   body.drawer-open .drawer-scrim { opacity: 1; pointer-events: auto; }
   .app-main, body.sidebar-collapsed .app-main { margin-left: 0; }
@@ -670,7 +677,7 @@ body.sidebar-collapsed .collapse-button svg { transform: rotate(180deg); }
   body.sidebar-collapsed .sidebar-bottom { padding-inline: 16px; }
   body.sidebar-collapsed .collapse-button { justify-content: initial; }
   body.sidebar-collapsed .collapse-button svg { transform: none; }
-  .topbar { padding: 0 16px; }
+  .topbar { left: 0; padding: 0 16px; }
   .topbar-start { gap: 12px; }
   .topbar-brand .logo-image { width: 110px; height: 29px; }
   .crumb { display: none; }

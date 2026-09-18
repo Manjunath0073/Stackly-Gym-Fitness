@@ -60,7 +60,7 @@ h2 { font-size: clamp(2.9rem, 4.8vw, 5.2rem); line-height: .88; }
 /* 1. Contact opening */
 .contact-hero { position: relative; min-height: 790px; overflow: hidden; isolation: isolate; background: var(--black); }
 .contact-hero-image, .contact-hero-overlay { position: absolute; z-index: -2; inset: 0; }
-.contact-hero-image { background: url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?fit=crop&fm=webp&q=80&w=960") center/cover; opacity: .34; transform: scale(1.04); }
+.contact-hero-image { background: url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?fit=crop&fm=webp&q=80&w=880") center/cover; opacity: .34; transform: scale(1.04); }
 .contact-hero-overlay { z-index: -1; background: radial-gradient(circle at 76% 48%, rgba(226, 75, 74, .15), transparent 26%), linear-gradient(90deg, rgba(10, 10, 10, .94), rgba(10, 10, 10, .5)); }
 .contact-hero-content { padding-top: 160px; }
 .contact-hero h1 { margin-bottom: 28px; font-size: clamp(5rem, 11vw, 10rem); line-height: .76; }

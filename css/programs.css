@@ -128,7 +128,7 @@ h2 { font-size: clamp(2.9rem, 4.8vw, 5.2rem); line-height: .88; }
 
 /* Immersive signature rail */
 .spotlight { position: relative; overflow: hidden; padding: 155px 0 175px; background: var(--black); isolation: isolate; }
-.spotlight-backdrop { position: absolute; z-index: -1; inset: 0; opacity: .17; background: linear-gradient(90deg, var(--black) 18%, rgba(10, 10, 10, .72) 56%, rgba(10, 10, 10, .3)), url("https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?fit=crop&fm=webp&q=80&w=800") center/cover; }
+.spotlight-backdrop { position: absolute; z-index: -1; inset: 0; opacity: .17; background: linear-gradient(90deg, var(--black) 18%, rgba(10, 10, 10, .72) 56%, rgba(10, 10, 10, .3)), url("https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?fit=crop&fm=webp&q=80&w=720") center/cover; }
 .spotlight-layout { display: grid; grid-template-columns: minmax(290px, .76fr) minmax(0, 1.24fr); gap: 12%; align-items: start; }
 .spotlight-copy { position: sticky; top: 125px; }
 .spotlight-index { display: block; margin-bottom: 23px; color: var(--red); font: 800 clamp(4rem, 7vw, 7rem)/.7 var(--display); }
@@ -254,7 +254,7 @@ h2 { font-size: clamp(2.9rem, 4.8vw, 5.2rem); line-height: .88; }
 /* Trial CTA */
 .start-program { position: relative; min-height: 700px; overflow: hidden; isolation: isolate; }
 .start-image, .start-overlay { position: absolute; z-index: -2; inset: 0; }
-.start-image { background: url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?fit=crop&fm=webp&q=80&w=960") center/cover; transform: scale(1.04); }
+.start-image { background: url("https://images.unsplash.com/photo-1540497077202-7c8a3999166f?fit=crop&fm=webp&q=80&w=880") center/cover; transform: scale(1.04); }
 .start-overlay { z-index: -1; background: linear-gradient(90deg, rgba(10, 10, 10, .9), rgba(10, 10, 10, .53) 55%, rgba(10, 10, 10, .78)); }
 .start-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr); align-items: center; gap: 9%; min-height: 700px; padding: 100px 0; }
 .start-copy h2 { max-width: 650px; margin-bottom: 30px; font-size: clamp(4.5rem, 8.5vw, 8.2rem); line-height: .77; }
